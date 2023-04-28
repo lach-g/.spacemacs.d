@@ -32,38 +32,35 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(shell-scripts
+   '(
+     ;; ================================================================
+     ;;                            Languages
+     ;; ================================================================
+     (c-c++ :variables c-c++-backend 'lsp-clangd)
+     rust
+     emacs-lisp
+     (python :variables python-backend 'anaconda)
+     shell-scripts
      sql
+     ;; ================================================================
+     ;;                            Utilities
+     ;; ================================================================
      html
      csv
      yaml
      syntax-checking
      docker
-     rust
-     python
-     ;; Choosing python backend
-     (python :variables python-backend 'anaconda)
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
-     emacs-lisp
      git
      helm
-     lsp
      (lsp :variables lsp-rust-server 'rust-analyzer)
      markdown
      multiple-cursors
      org
-      (shell :variables
-             shell-default-height 30
-             shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
+    (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
+     version-control
      treemacs)
 
 
@@ -584,10 +581,6 @@ before packages are loaded."
   ;; increase the delay of evil-escape
   (setq-default evil-escape-delay 0.2)
   (setq-default evil-escape-key-sequence "jj")
-
-  ;; rust lsp
-  ;; (setq-default dotspacemacs-configuration-layers
-  ;;               '(lsp :variables lsp-rust-server 'rust-analyzer))
 )
 
 
@@ -605,7 +598,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(company-shell counsel-gtags counsel swiper ivy fish-mode flycheck-bashate ggtags insert-shebang shfmt reformatter ac-ispell auto-complete auto-yasnippet blacken cargo code-cells company-anaconda anaconda-mode company-web web-completion-data csv-mode cython-mode docker aio docker-tramp dockerfile-mode emmet-mode esh-help eshell-prompt-extras eshell-z evil-org flycheck-pos-tip pos-tip flycheck-rust fuzzy gh-md git-link git-messenger git-modes git-timemachine gitignore-templates gnuplot gruvbox-theme autothemer helm-c-yasnippet helm-company company helm-css-scss helm-git-grep helm-ls-git helm-lsp helm-org-rifle helm-pydoc impatient-mode htmlize simple-httpd importmagic epc ctable concurrent deferred key-chord live-py-mode lsp-origami origami lsp-pyright lsp-python-ms lsp-treemacs lsp-ui lsp-mode eldoc markdown-toc mmm-mode multi-term multi-vterm project xref nose org-cliplink org-contrib org-download org-mime org-pomodoro alert log4e gntp org-present org-projectile org-category-capture org-rich-yank orgit-forge orgit forge yaml markdown-mode ghub closql emacsql treepy org pip-requirements pipenv load-env-vars pippel poetry prettier-js pug-mode py-isort pydoc pyenv-mode pythonic pylookup pytest pyvenv ron-mode rust-mode sass-mode haml-mode scss-mode shell-pop slim-mode smeargle sphinx-doc sql-indent tagedit terminal-here toml-mode treemacs-magit magit magit-section git-commit with-editor transient vterm web-beautify web-mode xterm-color yaml-mode yapfify yasnippet-snippets yasnippet pdf-tools ws-butler writeroom-mode winum which-key volatile-highlights vim-powerline vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org term-cursor symon symbol-overlay string-inflection string-edit-at-point spacemacs-whitespace-cleanup spacemacs-purpose-popwin spaceline space-doc restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete holy-mode hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-descbinds helm-ag google-translate golden-ratio flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-evilified-state evil-escape evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav elisp-def editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile all-the-icons aggressive-indent ace-link ace-jump-helm-line)))
+   '(browse-at-remote ccls company-c-headers company-rtags company-ycmd cpp-auto-include dap-mode lsp-docker bui disaster flycheck-rtags flycheck-ycmd gendoxy git-gutter-fringe fringe-helper git-gutter google-c-style helm-rtags rtags ycmd request-deferred company-shell counsel-gtags counsel swiper ivy fish-mode flycheck-bashate ggtags insert-shebang shfmt reformatter ac-ispell auto-complete auto-yasnippet blacken cargo code-cells company-anaconda anaconda-mode company-web web-completion-data csv-mode cython-mode docker aio docker-tramp dockerfile-mode emmet-mode esh-help eshell-prompt-extras eshell-z evil-org flycheck-pos-tip pos-tip flycheck-rust fuzzy gh-md git-link git-messenger git-modes git-timemachine gitignore-templates gnuplot gruvbox-theme autothemer helm-c-yasnippet helm-company company helm-css-scss helm-git-grep helm-ls-git helm-lsp helm-org-rifle helm-pydoc impatient-mode htmlize simple-httpd importmagic epc ctable concurrent deferred key-chord live-py-mode lsp-origami origami lsp-pyright lsp-python-ms lsp-treemacs lsp-ui lsp-mode eldoc markdown-toc mmm-mode multi-term multi-vterm project xref nose org-cliplink org-contrib org-download org-mime org-pomodoro alert log4e gntp org-present org-projectile org-category-capture org-rich-yank orgit-forge orgit forge yaml markdown-mode ghub closql emacsql treepy org pip-requirements pipenv load-env-vars pippel poetry prettier-js pug-mode py-isort pydoc pyenv-mode pythonic pylookup pytest pyvenv ron-mode rust-mode sass-mode haml-mode scss-mode shell-pop slim-mode smeargle sphinx-doc sql-indent tagedit terminal-here toml-mode treemacs-magit magit magit-section git-commit with-editor transient vterm web-beautify web-mode xterm-color yaml-mode yapfify yasnippet-snippets yasnippet pdf-tools ws-butler writeroom-mode winum which-key volatile-highlights vim-powerline vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org term-cursor symon symbol-overlay string-inflection string-edit-at-point spacemacs-whitespace-cleanup spacemacs-purpose-popwin spaceline space-doc restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete holy-mode hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-descbinds helm-ag google-translate golden-ratio flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-evilified-state evil-escape evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav elisp-def editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile all-the-icons aggressive-indent ace-link ace-jump-helm-line)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
