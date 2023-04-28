@@ -1,0 +1,67 @@
+#!title: Spacemacs Editor Keys
+
+* Essential
+** Autocomplete
+Comes as default with lsp
+
+** Undo & redo
+Undo: C-_
+Redo: C-g C-_
+
+** Library suggestions in file
+
+** Errors in file
+Comes as default with lsp
+
+** Search for word in current file
+/<word>
+
+** Search for all usages in cwd recursively
+ In project: SPC-/
+ Outside project: M-x grep-find
+
+** Fuzzy find for file in cwd recursively
+In project: SPC-p-f if in project
+Outside project: M-x helm-locate
+
+** Switch between files quickly like firefox
+Last buffer: SPC-TAB
+Previous buffer: Ctrl-x <left>
+Next buffer: Ctrl-x <right>
+
+** Switch to terminal
+M-x eshell
+
+** Go to definition
+On word: gd
+
+** Back and forward movement through movement like visual studio
+To jump backward: C-o
+To jump forward: C-i
+
+** Word-wrapping
+Default on
+
+** Multiline commenting out
+Comment a single line: gcc
+Comment multi lines:
+- gc<number of lines to comment>j
+- (Visual mode, select text) gc
+
+
+* Other
+** Build command
+In project to build: SPC m c c
+In project to run default binary: SPC m c x
+More examples: https://develop.spacemacs.org/layers/+lang/rust/README.html
+
+** Debug mode
+
+** Copy and paste
+
+** Project workflow
+
+** Git usage
+
+** File tree
+SPC-f-t
