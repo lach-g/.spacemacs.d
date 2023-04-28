@@ -1,6 +1,6 @@
-#+TITLE: .Spacemacs configuration
+#+TITLE: .Spacemacs Configuration
 
 * How to use
-1. Set an environment variable `SPACEMACSDIR` to `$HOME/.spacemacs.d
-2. Enter `git clone https://github.com/lach-g/.spacemacs.d.git` while in your $HOME directory
+1. Set an environment variable ~SPACEMACSDIR~ to ~$HOME/.spacemacs.d~
+2. Enter ~git clone https://github.com/lach-g/.spacemacs.d.git~ while in your ~$HOME~ directory
 3. Start Emacs and let the configuration and installation complete
